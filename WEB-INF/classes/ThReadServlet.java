@@ -1,7 +1,7 @@
+import bean.*;
 import executer.*;
 
-import bean.*;
-
+import java.util.ArrayList;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -10,21 +10,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ConReadServlet extends HttpServlet{
-	ReadExecuter RE = new ReadExecuter();
+public class ThReadServlet extends HttpServlet{
+	ThReadExecuter ThRE=new ThReadExecuter();
 	
 	public void doPost(HttpServletRequest req,HttpServletResponse res)
 	throws IOException,ServletException{
-		req.setCharacterEncoding("Windows-31J");
 		
-		int ThreadNo = Integer.parseInt(req.getParameter("thread"));
+		ThreadBean TB=new ThreadBean();
 		
-		CommentBean CB = new CommentBean();
+		String a="";
 		
-		ThreadBean tb = (ThreadBean) RE.execute(ThreadNo);
+		ArrayList AL=new ArrayList();
 		
-		req.setAttribute("tb",tb);
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/comment.jsp");
+		AL=(ArrayList)ThRE.execute(a);
+		
+		req.setAttribute("al",AL);
+		RequestDispatcher dispatcher=req.getRequestDispatcher("/threadresult.jsp");
 		dispatcher.forward(req,res);
+		
 	}
 }

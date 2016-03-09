@@ -26,13 +26,13 @@
 	
 	<h1> ${tb.title} </h1>
 	<h3>カテゴリ：${tb.category}</h3>
-	<a href="/testbb">トップ＞</a>
-	<a href="/testbb/selectthread">スレッド選択＞</a>
+	<a href="/kb">TOPページへ</a>
+	<a href="/kb/selectthread">スレッド選択</a>
 	<a href="#footer">ページの一番下へ↓</a>
 	
 	<hr>
-	<c:forEach var="cb" items="${conList}">
-		<c:out value="${cb.contentNo}"/>:
+	<c:forEach var="cb" items="${comList}">
+		<c:out value="${cb.commentNo}"/>:
 		<c:out value="${cb.name}" />
 		<c:out value="${cb.date}"/><br>
 		<pre><c:out value="${cb.text}"/></pre> <br>
